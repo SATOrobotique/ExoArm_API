@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+message ControllerIO{
+    repeated double io_data = 1;
+}
+
+message ToRobot{
+    int32 header = 1;
+    bool robot_power = 2;
+    bool robot_enable = 3;
+    bool fault_reset = 4;
+    repeated ControllerIO controller_inputs = 5;
+}
+
+
+message FromRobot{
+    int32 header = 1;
+    enum RobotState{
+        IDLE = 0;
+        OPERATIONAL = 1;
+        ENABLED = 2;
+        FAULT = 3;
+    };
+    int32 fault_type = 3;
+    repeated ControllerIO controller_outputs = 4;
+}
+
