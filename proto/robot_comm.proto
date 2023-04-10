@@ -4,7 +4,7 @@ message ControllerIO{
     repeated float io_data = 1;
 }
 
-message ToRobot{
+message ControllerToRobot{
     int32 header = 1;
     bool robot_power = 2;
     bool robot_enable = 3;
@@ -13,7 +13,7 @@ message ToRobot{
 }
 
 
-message FromRobot{
+message RobotToController{
     int32 header = 1;
     enum RobotState{
         IDLE = 0;
@@ -21,6 +21,7 @@ message FromRobot{
         ENABLED = 2;
         FAULT = 3;
     };
+    RobotState robot_state = 2;
     int32 fault_type = 3;
     repeated ControllerIO controller_outputs = 4;
 }

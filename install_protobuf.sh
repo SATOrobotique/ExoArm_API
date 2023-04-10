@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir build
 cd build
 PB_REL="https://github.com/protocolbuffers/protobuf/releases"
