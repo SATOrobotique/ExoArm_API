@@ -9,7 +9,7 @@ message ClientToRobot{
 }
 
 message SimulinkControllerInputs{
-    repeated float joint_position_ref = 1;
+    repeated float joint_position_ref = 1 [packed = true];
     repeated float joint_velocity_ref = 2 [packed = true];
     repeated float cartesian_stiffness_coeffs = 3 [packed = true];
     repeated float cartesian_damping_coeffs = 4 [packed = true];
