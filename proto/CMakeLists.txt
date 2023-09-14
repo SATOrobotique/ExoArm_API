@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.0.2)
 project(exoarm_dev)
 
 set(Protobuf_LIBRARY "/usr/local/lib/libprotobuf.so")
-set(Protobuf_INCLUDE_DIR "/usr/local/include")
 
 include(FindProtobuf)
+set(Protobuf_INCLUDE_DIR "/usr/local/include")
 find_package(Protobuf 3.21.12 REQUIRED)
 include_directories(${Protobuf_INCLUDE_DIR})
 protobuf_generate_cpp(Proto_SRC Proto_HEADER robot_comm.proto)
